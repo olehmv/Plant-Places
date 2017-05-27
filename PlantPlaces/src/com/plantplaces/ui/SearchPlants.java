@@ -1,5 +1,9 @@
 package com.plantplaces.ui;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,5 +28,14 @@ public class SearchPlants {
 			return "noresults";
 		}
 	}
-
+	public List<Plant>comletePlants(String query){
+		List<Plant>list=new ArrayList<>();
+		Plant redbud = new Plant();
+		Plant pawpaw=new Plant();
+		redbud.setName("redbud");
+		pawpaw.setName("pawpaw");
+		list.add(redbud);
+		list.add(pawpaw);
+		return list;
+	}
 }

@@ -1,4 +1,7 @@
-D:\elipse-neon\workspace\PlantPlaces\src\com\plantplaces\ui\ApplicationInfo.java
-D:\elipse-neon\workspace\PlantPlaces\src\com\plantplaces\dto\PlantSearch.java
-D:\elipse-neon\workspace\PlantPlaces\src\com\plantplaces\ui\SearchPlants.java
-D:\elipse-neon\workspace\PlantPlaces\src\com\plantplaces\dto\Plant.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\service\IPlantService.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\ui\ApplicationInfo.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\dao\IPlantDao.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\dto\Plant.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\service\PlantService.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\dto\PlantSearch.java
+D:\elipse-neon\workspace\git\PlantPlaces\src\com\plantplaces\ui\SearchPlants.java
