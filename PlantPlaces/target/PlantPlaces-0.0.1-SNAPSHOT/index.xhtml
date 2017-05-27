@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Promoting plant education</ui:define>
+		<ui:define name="top">Promoting plant education</ui:define>
+		<ui:define name="content">
+			<h1>Welcome to plant places</h1>
+			<em><h:outputLabel value="#{applicationInfo.slogan}" /></em>
+			<h1>Search plants:</h1>
+			<h:form>
+				<h:inputText value="#{plant.name}"></h:inputText>
+				<h:commandButton value="Submit" action="#{searchPlants.execute}"></h:commandButton>
+			</h:form>
+			<p>1 down vote Listeners, in general, are a way for the container
+				to notify your app of events, instead of just web requests. For
+				example, to be notified when a session is going to time out, you'd
+				extend HttpSessionListener and implement the sessionDestroyed()
+				method. The container would then call that on expiration of the
+				session and you could log it alongside the login time for that user.
+
+				For ContextLoaderListener, this lets you kick off non-web related
+				parts of your app, that you want on container startup, instead of
+				waiting on someone to hit one of your spring components. It is using
+				the context-param contextConfigLocation set earlier in your web.xml
+				to know what to start. For RequestContextListener, you get notified
+				of request creation and deletion . Whether they're necessary depends
+				on the architecture of your app.</p>
+			<p>1 down vote Listeners, in general, are a way for the container
+				to notify your app of events, instead of just web requests. For
+				example, to be notified when a session is going to time out, you'd
+				extend HttpSessionListener and implement the sessionDestroyed()
+				method. The container would then call that on expiration of the
+				session and you could log it alongside the login time for that user.
+
+				For ContextLoaderListener, this lets you kick off non-web related
+				parts of your app, that you want on container startup, instead of
+				waiting on someone to hit one of your spring components. It is using
+				the context-param contextConfigLocation set earlier in your web.xml
+				to know what to start. For RequestContextListener, you get notified
+				of request creation and deletion . Whether they're necessary depends
+				on the architecture of your app.</p>
+			<p>1 down vote Listeners, in general, are a way for the container
+				to notify your app of events, instead of just web requests. For
+				example, to be notified when a session is going to time out, you'd
+				extend HttpSessionListener and implement the sessionDestroyed()
+				method. The container would then call that on expiration of the
+				session and you could log it alongside the login time for that user.
+
+				For ContextLoaderListener, this lets you kick off non-web related
+				parts of your app, that you want on container startup, instead of
+				waiting on someone to hit one of your spring components. It is using
+				the context-param contextConfigLocation set earlier in your web.xml
+				to know what to start. For RequestContextListener, you get notified
+				of request creation and deletion . Whether they're necessary depends
+				on the architecture of your app.</p>
+				<p>1 down vote Listeners, in general, are a way for the container
+				to notify your app of events, instead of just web requests. For
+				example, to be notified when a session is going to time out, you'd
+				extend HttpSessionListener and implement the sessionDestroyed()
+				method. The container would then call that on expiration of the
+				session and you could log it alongside the login time for that user.
+
+				For ContextLoaderListener, this lets you kick off non-web related
+				parts of your app, that you want on container startup, instead of
+				waiting on someone to hit one of your spring components. It is using
+				the context-param contextConfigLocation set earlier in your web.xml
+				to know what to start. For RequestContextListener, you get notified
+				of request creation and deletion . Whether they're necessary depends
+				on the architecture of your app.</p>
+				<p>1 down vote Listeners, in general, are a way for the container
+				to notify your app of events, instead of just web requests. For
+				example, to be notified when a session is going to time out, you'd
+				extend HttpSessionListener and implement the sessionDestroyed()
+				method. The container would then call that on expiration of the
+				session and you could log it alongside the login time for that user.
+
+				For ContextLoaderListener, this lets you kick off non-web related
+				parts of your app, that you want on container startup, instead of
+				waiting on someone to hit one of your spring components. It is using
+				the context-param contextConfigLocation set earlier in your web.xml
+				to know what to start. For RequestContextListener, you get notified
+				of request creation and deletion . Whether they're necessary depends
+				on the architecture of your app.</p>
+
+
+			<h:link value="Contact As" outcome="contactAs"></h:link>
+
+
+		</ui:define>
+	</ui:composition>
+
+
+
+
+</h:body>
+</html>
