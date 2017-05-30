@@ -20,7 +20,7 @@ public class TestPlantService extends TestCase {
 
 	@Test
 	public void testFilterPlants() {
-		givenThatPLantServiceIsPopulatedWithPlantDao();
+		givenThatPlantServiceIsPopulatedWithPlantDao();
 		whenFilterWithRed();
 		thenVerifyTwoResults();
 	}
@@ -34,7 +34,7 @@ public class TestPlantService extends TestCase {
 		verify(mock,times(1)).fetchPlants();
 	}
 
-	private void givenThatPLantServiceIsPopulatedWithPlantDao() {
+	private void givenThatPlantServiceIsPopulatedWithPlantDao() {
 		plantService = new PlantService();
 		mock = mock(IPlantDAO.class);
 		List<Plant> plantList = constructPlantList();

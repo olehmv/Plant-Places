@@ -15,8 +15,8 @@
 			<em><h:outputLabel value="#{applicationInfo.slogan}" /></em>
 			<h1>Search plants:</h1>
 			<h:form>
-				<h:inputText value="#{plant.name}"></h:inputText>
-				<h:commandButton value="Submit" action="#{searchPlants.execute}"></h:commandButton>
+				<p:autoComplete value="#{plant.name}" completeMethod="#{searchPlants.comletePlants}"></p:autoComplete>
+				<p:commandButton value="Submit" actionListener="#{searchPlants.execute}"></p:commandButton>
 			</h:form>
 			<p>1 down vote Listeners, in general, are a way for the container
 				to notify your app of events, instead of just web requests. For

@@ -15,6 +15,8 @@ public interface IPlantService {
 	 * @param String filter
 	 * @return List<Plant>
 	 */
-public List<Plant>filterPlants(String filter);
+public List<Plant>filterPlants(String query);
+
+	public void save(Plant plant)throws Exception;
 
 }

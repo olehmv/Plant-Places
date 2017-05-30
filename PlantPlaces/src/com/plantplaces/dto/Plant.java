@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 @Scope("session")
 public class Plant {
 	private String name;
+	private int guid;
 	private String genus;
 	private String species;
 	private String common;
@@ -71,6 +72,16 @@ public class Plant {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+
+	public int getGuid() {
+		return guid;
+	}
+
+
+	public void setGuid(int guid) {
+		this.guid = guid;
 	}
 
 }

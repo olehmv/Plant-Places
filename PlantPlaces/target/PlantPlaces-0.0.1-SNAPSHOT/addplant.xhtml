@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="template.xhtml">
+		<ui:define name="title">Add plant</ui:define>
+		<ui:define name="top">Add plant</ui:define>
+		<ui:define name="content">
+			<h1>Enter Plant Detail</h1>
+			<h:form>
+				<p:growl id="growl" showDetail="true" sticky="true" />
+				<h:outputLabel value="genus" />
+				<p:inputText value="#{plant.genus}" />
+				<br />
+				<h:outputLabel value="species" />
+				<p:inputText value="#{plant.species}" />
+				<br />
+				<h:outputLabel value="common" />
+				<p:inputText value="#{plant.common}" />
+				<br />
+				<h:outputLabel value="cultivar" />
+				<p:inputText value="#{plant.cultivar}" />
+				<br />
+
+				<p:commandButton value="Submit" actionListener="#{addPlant.execute}"
+					update="growl"></p:commandButton>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+
+
+</h:body>
+</html>

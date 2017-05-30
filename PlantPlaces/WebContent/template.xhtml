@@ -26,6 +26,12 @@
 
 	<div id="top">
 		<ui:insert name="top">Top Section</ui:insert>
+		<p:menubar>
+		<p:menuitem value="Home" url="index.xhtml"/>
+		<p:submenu label="Administration">
+		<p:menuitem value="Add Plant" url="addplant.xhtml"/>
+		</p:submenu>
+		</p:menubar>
 	</div>
 	<div id="left">
 		<ui:insert name="left">Left Section</ui:insert>
@@ -40,9 +46,9 @@
 			</h:link>
 		</ui:insert>
 	</div>
-	<div class="printonly">
+	<!--  <div class="printonly">
 		<p:outputLabel value="Printed from plantplaces"></p:outputLabel>
-	</div>
+	</div> --> 
 
 </h:body>
 </html>

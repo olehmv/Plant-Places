@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dto.Plant;
+import com.plantplaces.service.IPlantService;
 
 @Named
 @ManagedBean
@@ -19,23 +20,25 @@ public class SearchPlants {
 
 	@Inject
 	private Plant plant;
+	@Inject
+	private IPlantService plantService;
 
 	public String execute() {
 
-		if (plant != null && plant.getName().equalsIgnoreCase("Redbutton")) {
+		if (plant != null && plant.getName().equalsIgnoreCase("Redbud")) {
 			return "results";
 		} else {
 			return "noresults";
 		}
 	}
 	public List<Plant>comletePlants(String query){
-		List<Plant>list=new ArrayList<>();
-		Plant redbud = new Plant();
-		Plant pawpaw=new Plant();
-		redbud.setName("redbud");
-		pawpaw.setName("pawpaw");
-		list.add(redbud);
-		list.add(pawpaw);
-		return list;
+		return plantService.filterPlants(query);
 	}
+	public Plant getPlant() {
+		return plant;
+	}
+	public void setPlant(Plant plant) {
+		this.plant = plant;
+	}
+	
 }
