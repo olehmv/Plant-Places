@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Scope;
 @ManagedBean
 @Scope("session")
 public class Plant {
-	private String name;
 	private int guid;
 	private String genus;
 	private String species;
@@ -55,23 +54,15 @@ public class Plant {
 		this.cultivar = cultivar;
 	}
 
+	
+
 
 	
 
 
 	@Override
 	public String toString() {
-		return "Plant [name=" + name + ", genus=" + genus + ", species=" + species + ", common=" + common
-				+ ", cultivar=" + cultivar + "]";
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+		return common;
 	}
 
 
@@ -83,5 +74,10 @@ public class Plant {
 	public void setGuid(int guid) {
 		this.guid = guid;
 	}
+
+
+	
+
+	
 
 }

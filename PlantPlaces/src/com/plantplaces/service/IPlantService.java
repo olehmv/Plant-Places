@@ -3,6 +3,7 @@ package com.plantplaces.service;
 import java.util.List;
 
 import com.plantplaces.dto.Plant;
+import com.plantplaces.dto.Specimen;
 /**
  * Service process data related to Plant
  * @author olehmv
@@ -18,5 +19,9 @@ public interface IPlantService {
 public List<Plant>filterPlants(String query);
 
 	public void save(Plant plant)throws Exception;
+
+	List<Plant> fetchPlants(Plant plant);
+
+	void save(Specimen specimen) throws Exception;
 
 }

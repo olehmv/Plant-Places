@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns = "http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Plant Places</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Plant Places</title>
 </h:head>
 <h:body>
-<em><h:outputLabel value="#{applicationInfo.slogan}"/></em>
-<h1>Search result: <h:outputLabel value="#{plant.name}"></h:outputLabel> </h1>
+	<em><h:outputLabel value="#{applicationInfo.slogan}" /></em>
+	<h1>
+		Search result:
+		<h:outputLabel value="#{plant.common}"></h:outputLabel>
+	</h1>
+	<h:form id="form">
+	<p:dataTable id="showPlants" var="plantResult" value="#{searchPlants.fetchPlants}"
+		selectionMode="single" selection="#{searchPlants.selectedPlant}"
+		rowKey="#{plantResult.guid}">
+		<p:ajax  event="rowSelect" listener="#{searchPlants.onRowSelect}"/>
+		<p:column headerText="ID">
+			<h:outputText value="#{plantResult.guid}" />
+		</p:column>
+		<p:column headerText="Genus">
+			<h:outputText value="#{plantResult.genus}" />
+		</p:column>
+		<p:column headerText="Species">
+			<h:outputText value="#{plantResult.species}" />
+		</p:column>
+		<p:column headerText="Common">
+			<h:outputText value="#{plantResult.common}" />
+		</p:column>
+		<p:column headerText="Cultivar">
+			<h:outputText value="#{plantResult.cultivar}" />
+		</p:column>
+
+		<f:facet name="footer">
+			<p:commandButton process="showPlants" 
+				 value="View"
+				action="#{searchPlants.showDetail}" />
+		</f:facet>
+
+	</p:dataTable>
+	</h:form>
 </h:body>
 </html>

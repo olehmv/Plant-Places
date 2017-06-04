@@ -1,4 +1,4 @@
-package com.plantplaces.dao.impl;
+package com.plantplaces.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import javax.inject.Named;
 
 import org.apache.log4j.Logger;
 
-import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dto.Plant;
 @Named("plantDAO")
 public class PlantDAOStub implements IPlantDAO {
@@ -17,7 +16,6 @@ public class PlantDAOStub implements IPlantDAO {
 	public List<Plant> fetchPlants() {
 		List<Plant> allPlants = new ArrayList<>();
 		Plant redbud = new Plant();
-		redbud.setName("Eastern Redbud");
 		redbud.setGenus("Cercis");
 		redbud.setSpecies("Redbud");
 		Plant pawpaw = new Plant();
@@ -50,6 +48,12 @@ public class PlantDAOStub implements IPlantDAO {
 	public void delete(Plant plant) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<Plant> fetchPlants(Plant plant) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
