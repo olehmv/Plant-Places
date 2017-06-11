@@ -37,5 +37,13 @@
 }
 
 .inputData {
-	
+	background-color: #aaaaaa;
+}
+
+.inputData input {
+	margin-left: 16em;
+}
+
+.inputData label {
+	position: absolute;
 }

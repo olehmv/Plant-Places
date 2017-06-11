@@ -1,5 +1,7 @@
 package com.plantplaces.dao;
 
+import java.util.List;
+
 import com.plantplaces.dto.Specimen;
 
 public interface ISpecimenDAO {
@@ -18,5 +20,7 @@ public interface ISpecimenDAO {
 	 * @see com.plantplaces.dao.ISpecimenDAO#delete(com.plantplaces.dto.Plant)
 	 */
 	void delete(Specimen specimen);
+
+	List<Specimen> fetchSpecimens(int guid);
 
 }

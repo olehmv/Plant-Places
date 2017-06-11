@@ -1,5 +1,7 @@
 package com.plantplaces.dto;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
@@ -14,6 +16,7 @@ public class Plant {
 	private String species;
 	private String common;
 	private String cultivar;
+	private List<Specimen>specimens;
 	
 	public String getGenus() {
 		return genus;
@@ -73,6 +76,16 @@ public class Plant {
 
 	public void setGuid(int guid) {
 		this.guid = guid;
+	}
+
+
+	public List<Specimen> getSpecimens() {
+		return specimens;
+	}
+
+
+	public void setSpecimens(List<Specimen> specimens) {
+		this.specimens = specimens;
 	}
 
 
