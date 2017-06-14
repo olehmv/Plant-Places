@@ -9,7 +9,7 @@ public interface ISpecimenDAO {
 	/* (non-Javadoc)
 	 * @see com.plantplaces.dao.ISpecimenDAO#insert(com.plantplaces.dto.Specimen)
 	 */
-	void insert(Specimen specimen);
+	void save(Specimen specimen);
 
 	/* (non-Javadoc)
 	 * @see com.plantplaces.dao.ISpecimenDAO#update(com.plantplaces.dto.Plant)

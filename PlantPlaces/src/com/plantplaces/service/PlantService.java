@@ -1,5 +1,6 @@
 package com.plantplaces.service;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,22 +10,31 @@ import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.context.annotation.Scope;
 
 import com.plantplaces.dao.IFileDAO;
+import com.plantplaces.dao.IPhotoDAO;
 import com.plantplaces.dao.IPlantDAO;
 import com.plantplaces.dao.ISpecimenDAO;
 import com.plantplaces.dto.Photo;
 import com.plantplaces.dto.Plant;
 import com.plantplaces.dto.Specimen;
 
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Position;
+import net.coobird.thumbnailator.geometry.Positions;
+
 @Named
 @ManagedBean
 @Scope("session")
 public class PlantService implements IPlantService {
+	@Inject
+	private IPhotoDAO photoDAO;
 	@Inject
 	private IPlantDAO plantDAO;
 	private List<Plant> allPlants;
@@ -60,12 +70,12 @@ public class PlantService implements IPlantService {
 		if (plant.getGenus() == null || plant.getGenus().isEmpty()) {
 			throw new Exception("Genus required");
 		}
-		plantDAO.insert(plant);
+		plantDAO.save(plant);
 	}
 
 	@Override
 	public void save(Specimen specimen) throws Exception {
-		specimenDAO.insert(specimen);
+		specimenDAO.save(specimen);
 		
 	}
 
@@ -97,10 +107,19 @@ public class PlantService implements IPlantService {
 	}
 	@Override
 	public void savePhoto(Photo photo,InputStream inputStream) throws IOException{
-		File directory = new File("D:/elipse-neon/workspace/git/PlantPlaces/WebContent/images");
+		File directory = new File("D:/elipse-neon/workspace/git/PlantPlaces/WebContent/resources/images");
 		String generatedName=generatedUniqueImageName();
 		File file=new File(directory,generatedName);
 		fileDAO.save(inputStream, file);
+		File thumbnailDirectory = new File("D:/elipse-neon/workspace/git/PlantPlaces/WebContent/resources/thumbnails");
+		File thumbnailFile=new File(thumbnailDirectory,generatedName);
+		Thumbnails.of(file).size(100, 100).toFile(thumbnailFile);
+		
+		BufferedImage bufferedImage = ImageIO.read(new File(directory,"watermark.png"));
+		Thumbnails.of(file).scale(1).watermark(Positions.BOTTOM_LEFT,bufferedImage,0.9f).toFile(file);
+		photo.setUri(generatedName);
+		photo.setDateTaken(new Date());
+		photoDAO.save(photo);
 	}
 
 	private String generatedUniqueImageName() {
@@ -110,6 +129,11 @@ public class PlantService implements IPlantService {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMHHmmss");
 		middle=sdf.format(new Date());
 		return prefix+middle+sufix;
+	}
+
+	@Override
+	public List<Photo> fetchPhotos(Specimen specimen) {
+		return photoDAO.fetchPhotos(specimen);
 	}
 
 }

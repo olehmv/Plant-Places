@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import com.plantplaces.dto.Plant;
-public class PlantHbmDAO implements IPlantDAO {
+public class PlantHbmDAO extends PlantPlacesDAO<Plant>implements IPlantDAO {
 	
 	final static Logger logger=Logger.getLogger(PlantHbmDAO.class);
 	@Override
@@ -38,14 +38,7 @@ public class PlantHbmDAO implements IPlantDAO {
 		return list;
 	}
 
-	@Override
-	public void insert(Plant plant) {
-		Session session = HibernateUtils.getSessionfactory().openSession();
-		session.beginTransaction();
-		session.save(plant);
-		session.getTransaction().commit();
-
-	}
+	
 
 	@Override
 	public void update(Plant plant) {
@@ -57,6 +50,13 @@ public class PlantHbmDAO implements IPlantDAO {
 	public void delete(Plant plant) {
 		// TODO Auto-generated method stub
 
+	}
+
+
+	@Override
+	public void insert(Session session, Plant dto) {
+		session.save(dto);
+		
 	}
 
 }

@@ -2,6 +2,7 @@ package com.plantplaces.ui;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -31,6 +32,7 @@ public class SpecimenVO {
 	@Inject
 	IPlantService plantService;
 	private UploadedFile file;
+	private List<Photo> photos;
 
 	public Specimen getSpecimen() {
 		return specimen;
@@ -66,6 +68,13 @@ public class SpecimenVO {
 	public void onRowSelect(SelectEvent event) {
 		Specimen specimen = (Specimen) event.getObject();
 		setSpecimen(specimen);
+		setPhotos(plantService.fetchPhotos(specimen));
+
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("specimen.xhtml");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setSpecimen(Specimen specimen) {
@@ -81,22 +90,22 @@ public class SpecimenVO {
 	}
 
 	public void upload() {
-		if(specimen.getId()==0){
+		if (specimen.getId() == 0) {
 			FacesMessage message = new FacesMessage("Please select specimen");
 			FacesContext.getCurrentInstance().addMessage(null, message);
-		}else if (file != null) {
-		try {
-			InputStream inputStream = file.getInputstream();
-			photo.setSpecimenId(specimen.getId());
-			plantService.savePhoto(photo,inputStream);
+		} else if (file != null) {
+			try {
+				InputStream inputStream = file.getInputstream();
+				photo.setSpecimenId(specimen.getId());
+				plantService.savePhoto(photo, inputStream);
 				FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
 				FacesContext.getCurrentInstance().addMessage(null, message);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			FacesMessage message = new FacesMessage("file was not  uploaded.");
-			FacesContext.getCurrentInstance().addMessage(null, message);
-		}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+				FacesMessage message = new FacesMessage("file was not  uploaded.");
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			}
 		}
 	}
 
@@ -106,6 +115,14 @@ public class SpecimenVO {
 
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
+	}
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
 	}
 
 }

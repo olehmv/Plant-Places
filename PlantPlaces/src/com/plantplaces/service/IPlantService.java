@@ -33,4 +33,6 @@ public List<Plant>filterPlants(String query);
 
 	void savePhoto(Photo photo, InputStream inputStream) throws IOException;
 
+	public List<Photo> fetchPhotos(Specimen specimen);
+
 }

@@ -24,6 +24,8 @@
 		<!-- Use Annotation-based mapping metadata -->
 		<mapping resource="com/plantplaces/dto/Plant.hbm.xml" />
 		<mapping resource="com/plantplaces/dto/Specimen.hbm.xml" />
+		<mapping resource="com/plantplaces/dto/Photo.hbm.xml" />
+
 
 
 	</session-factory>
