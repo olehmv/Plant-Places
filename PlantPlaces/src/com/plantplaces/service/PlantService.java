@@ -34,6 +34,8 @@ import net.coobird.thumbnailator.geometry.Positions;
 @Scope("session")
 public class PlantService implements IPlantService {
 	@Inject
+	private JmsBean jmsBean;
+	@Inject
 	private IPhotoDAO photoDAO;
 	@Inject
 	private IPlantDAO plantDAO;
@@ -106,10 +108,11 @@ public class PlantService implements IPlantService {
 			plant.setSpecimens(specimens);
 	}
 	@Override
-	public void savePhoto(Photo photo,InputStream inputStream) throws IOException{
+	public void savePhoto(Photo photo,InputStream inputStream) throws Exception{
 		File directory = new File("D:/elipse-neon/workspace/git/PlantPlaces/WebContent/resources/images");
 		String generatedName=generatedUniqueImageName();
 		File file=new File(directory,generatedName);
+		jmsBean.submit(file.toString());
 		fileDAO.save(inputStream, file);
 		File thumbnailDirectory = new File("D:/elipse-neon/workspace/git/PlantPlaces/WebContent/resources/thumbnails");
 		File thumbnailFile=new File(thumbnailDirectory,generatedName);

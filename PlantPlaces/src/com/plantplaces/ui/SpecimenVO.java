@@ -101,7 +101,7 @@ public class SpecimenVO {
 				FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
 				FacesContext.getCurrentInstance().addMessage(null, message);
 
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				FacesMessage message = new FacesMessage("file was not  uploaded.");
 				FacesContext.getCurrentInstance().addMessage(null, message);
