@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jws.WebService;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.plantplaces.dto.Plant;
@@ -13,6 +14,7 @@ import com.plantplaces.service.IPlantService;
 
 @WebService
 @Named
+@Scope("prototype")
 public class PlantWSService implements IPlantWSService {
 
 	@Inject
